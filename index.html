@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ノベルゲーム</title>
+    <!-- Googleフォントの読み込み -->
+    <link href="https://fonts.googleapis.com/css2?family=DotGothic16&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    
+    <!-- CSSファイルの読み込み（ルート直下） -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- BGMの設定 -->
+        <audio id="bgm" src="/bgm/main.m4a" loop autoplay></audio>
+
+        <script>
+            // BGMの音量を設定
+            document.getElementById('bgm').volume = 0.5;  // 音量を50%に設定
+        </script>
+
+
+    <!-- ヘッダー部分 -->
+    <div class="header">
+        <!-- ステータス表示 -->
+        <span>3年 11月 1週</span>
+        <span class="status">やる気: 😊</span>
+        <span class="status">体力: ♥♥♥♥♥</span>
+        <!-- ミュートボタン -->
+        <button id="muteButton" class="mute-button">🔇</button>
+    </div>
+
+    <!-- キャラクター表示エリア -->
+    <div class="main">
+        <!-- 左側キャラクター -->
+        <img src="/img/main.gif" id="left-character" class="character">
+        <!-- 右側キャラクター -->
+        <img src="" id="right-character" class="character">
+    </div>
+    
+    <!-- テキスト表示エリア -->
+    <div class="textbox">
+        <div class="textarea left">
+            <p id="text">僕もMFを卒業かあ…お世話になった皆さんに挨拶しないと</p>
+        </div>
+        <div id="choices" class="choice-option">
+            <button id="A" class="choice-button A">西川さん</button>
+            <button id="B" class="choice-button B">村田さん</button>
+            <button id="C" class="choice-button C">西村さん</button>
+            <button id="D" class="choice-button D">牧野さん</button>
+            <button id="E" class="choice-button E">宇田さん</button>
+            <button id="F" class="choice-button F">桑名さん</button>
+        </div>
+        <button id="resetButton" class="reset-button" style="display:none;">最初に戻る</button>
+    </div>
+
+    <!-- スクリプトファイルの読み込み（ルート直下） -->
+    <script type="module" src="script.js"></script>
+</body>
+</html>
