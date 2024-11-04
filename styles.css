@@ -123,8 +123,8 @@ body {
     margin: 4px;
 }
 
-/* リセットボタン */
-#reset-button {
+/* 「最初に戻る」ボタンのスタイル */
+#resetButton {
     margin-top: 20px;
     padding: 10px;
     background-color: #4CAF50;
@@ -132,11 +132,15 @@ body {
     border: none;
     cursor: pointer;
     font-size: 18px;
+    font-family: 'DotGothic16', sans-serif;
     display: none;
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
+    border-radius: 5px;
+    text-align: center;
 }
+
 
 /* ポップアップのスタイル */
 .popup {

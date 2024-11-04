@@ -19,6 +19,20 @@ function typeWriter(text, element, callback, speed = 25) {
     type();
 }
 
+// 画像の表示/非表示処理を追加
+function setCharacterImage(elementId, imagePath) {
+    const characterImage = document.getElementById(elementId);
+    if (imagePath) {
+        characterImage.src = imagePath;
+        characterImage.style.display = "block"; // 画像を表示
+    } else {
+        characterImage.style.display = "none"; // 画像を非表示
+    }
+}
+
+// 初期値として左のキャラクターに main.gif を設定
+setCharacterImage("left-character-image", "/img/main.gif");
+
 // セリフを順番に表示する関数
 function displayDialogSequence(dialogSequence) {
     let currentIndex = 0;
@@ -39,11 +53,11 @@ function displayDialogSequence(dialogSequence) {
             textBox.classList.remove('left', 'right'); // クラスをリセット
             textBox.classList.add(speaker); // 左か右かのクラスを追加
 
-            // キャラクター画像を設定
+            // 画像の表示/非表示処理
             if (speaker === 'left') {
-                document.getElementById('left-character-image').src = imagePath;
+                setCharacterImage("left-character-image", imagePath);
             } else {
-                document.getElementById('right-character-image').src = imagePath;
+                setCharacterImage("right-character-image", imagePath);
             }
 
             // タイプライター風にセリフを表示
@@ -85,6 +99,8 @@ document.getElementById("resetButton").addEventListener("click", () => {
     document.getElementById("choice-container").style.display = 'flex';
     document.getElementById("resetButton").style.display = 'none';
     document.getElementById("text").innerHTML = "僕もMFを卒業かあ…お世話になった皆さんに挨拶しないと";
+    setCharacterImage("left-character-image", "/img/main.gif"); // 初期画像を再設定
+    setCharacterImage("right-character-image", ""); // 右側の画像を非表示
 });
 
 // BGMの初期設定
@@ -95,18 +111,4 @@ document.addEventListener('DOMContentLoaded', () => {
     } else {
         console.error("BGM要素が見つかりません。");
     }
-});
-
-// ポップアップ要素とボタンを取得
-const popup = document.getElementById("popup");
-const closePopupButton = document.getElementById("closePopup");
-
-// ページ読み込み時にポップアップを表示
-window.addEventListener("DOMContentLoaded", () => {
-    popup.classList.add("show");
-});
-
-// 閉じるボタンがクリックされたときにポップアップを非表示にする
-closePopupButton.addEventListener("click", () => {
-    popup.classList.remove("show");
 });
