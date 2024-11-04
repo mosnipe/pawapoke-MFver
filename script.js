@@ -23,9 +23,9 @@ function typeWriter(text, element, callback, speed = 25) {
 function displayDialogSequence(dialogSequence) {
     let currentIndex = 0;
     const textElement = document.getElementById("text");
-    const textBox = document.querySelector('.text-area');
+    const textBox = document.querySelector('.textarea'); // クラス名修正
     const choicesContainer = document.getElementById("choices");
-    const resetButton = document.getElementById("reset-button");
+    const resetButton = document.getElementById("resetButton");
 
     // 選択肢とリセットボタンを非表示にする
     choicesContainer.style.display = 'none';
@@ -36,11 +36,15 @@ function displayDialogSequence(dialogSequence) {
         if (currentIndex < dialogSequence.length) {
             const { text, side, image } = dialogSequence[currentIndex];
             textElement.innerHTML = ""; // テキストをクリア
-            textBox.className = `text-area ${side}`; // クラスを動的に設定
+            textBox.classList.remove('left', 'right'); // クラスをリセット
+            textBox.classList.add(side); // 左か右かのクラスを追加
 
             // キャラクター画像を設定
-            const characterElement = document.getElementById(`${side}-character-image`);
-            characterElement.src = image;
+            if (side === 'left') {
+                document.getElementById('left-character').src = image;
+            } else {
+                document.getElementById('right-character').src = image;
+            }
 
             // タイプライター風にセリフを表示
             typeWriter(text, textElement, () => {
@@ -68,12 +72,27 @@ function handleChoice(choice) {
 
 // 各選択肢ボタンにイベントリスナーを追加
 ['A', 'B', 'C', 'D', 'E', 'F'].forEach(choice => {
-    document.getElementById(`choice-${choice}`).addEventListener("click", () => handleChoice(choice));
+    const button = document.getElementById(choice);
+    if (button) {
+        button.addEventListener("click", () => handleChoice(choice));
+    } else {
+        console.error(`ボタン '${choice}' が見つかりません。`);
+    }
 });
 
 // リセットボタンのイベントリスナーを設定
-document.getElementById("reset-button").addEventListener("click", () => {
+document.getElementById("resetButton").addEventListener("click", () => {
     document.getElementById("choices").style.display = 'flex';
-    document.getElementById("reset-button").style.display = 'none';
+    document.getElementById("resetButton").style.display = 'none';
     document.getElementById("text").innerHTML = "僕もMFを卒業かあ…お世話になった皆さんに挨拶しないと";
+});
+
+// BGMの初期設定
+document.addEventListener('DOMContentLoaded', () => {
+    const bgm = document.getElementById('bgm');
+    if (bgm) {
+        bgm.volume = 0.5; // 音量を50%に設定
+    } else {
+        console.error("BGM要素が見つかりません。");
+    }
 });
