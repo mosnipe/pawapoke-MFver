@@ -23,8 +23,8 @@ function typeWriter(text, element, callback, speed = 25) {
 function displayDialogSequence(dialogSequence) {
     let currentIndex = 0;
     const textElement = document.getElementById("text");
-    const textBox = document.querySelector('.textarea'); // クラス名修正
-    const choicesContainer = document.getElementById("choices");
+    const textBox = document.querySelector('.text-area');
+    const choicesContainer = document.getElementById("choice-container");
     const resetButton = document.getElementById("resetButton");
 
     // 選択肢とリセットボタンを非表示にする
@@ -34,16 +34,16 @@ function displayDialogSequence(dialogSequence) {
     // 次のセリフを表示する関数
     function showNextDialog() {
         if (currentIndex < dialogSequence.length) {
-            const { text, side, image } = dialogSequence[currentIndex];
+            const { text, speaker, imagePath } = dialogSequence[currentIndex];
             textElement.innerHTML = ""; // テキストをクリア
             textBox.classList.remove('left', 'right'); // クラスをリセット
-            textBox.classList.add(side); // 左か右かのクラスを追加
+            textBox.classList.add(speaker); // 左か右かのクラスを追加
 
             // キャラクター画像を設定
-            if (side === 'left') {
-                document.getElementById('left-character').src = image;
+            if (speaker === 'left') {
+                document.getElementById('left-character-image').src = imagePath;
             } else {
-                document.getElementById('right-character').src = image;
+                document.getElementById('right-character-image').src = imagePath;
             }
 
             // タイプライター風にセリフを表示
@@ -71,18 +71,18 @@ function handleChoice(choice) {
 }
 
 // 各選択肢ボタンにイベントリスナーを追加
-['A', 'B', 'C', 'D', 'E', 'F'].forEach(choice => {
-    const button = document.getElementById(choice);
+['nishikawa', 'murata', 'nishimura', 'makino', 'uda', 'kuwama'].forEach(choice => {
+    const button = document.getElementById(`choice-${choice}`);
     if (button) {
         button.addEventListener("click", () => handleChoice(choice));
     } else {
-        console.error(`ボタン '${choice}' が見つかりません。`);
+        console.error(`ボタン 'choice-${choice}' が見つかりません。`);
     }
 });
 
 // リセットボタンのイベントリスナーを設定
 document.getElementById("resetButton").addEventListener("click", () => {
-    document.getElementById("choices").style.display = 'flex';
+    document.getElementById("choice-container").style.display = 'flex';
     document.getElementById("resetButton").style.display = 'none';
     document.getElementById("text").innerHTML = "僕もMFを卒業かあ…お世話になった皆さんに挨拶しないと";
 });
