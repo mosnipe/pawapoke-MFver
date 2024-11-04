@@ -1,4 +1,4 @@
-/* 基本スタイル */
+/* ベーススタイル */
 body {
     font-family: 'DotGothic16', sans-serif;
     background-color: #f0f0f0;
@@ -6,7 +6,7 @@ body {
     padding: 0;
 }
 
-/* ヘッダー部分のスタイル */
+/* ヘッダー */
 .header {
     background-color: #4CAF50;
     color: white;
@@ -24,9 +24,9 @@ body {
     font-size: 18px;
 }
 
-/* ミュートボタンのスタイル（被らないよう右側に移動） */
+/* ミュートボタン（右側に配置） */
 .mute-button {
-    background-color: transparent;
+    background: none;
     border: none;
     font-size: 24px;
     cursor: pointer;
@@ -36,28 +36,28 @@ body {
     transform: translateY(-50%);
 }
 
-/* メイン画面 (キャラクター表示エリア) */
+/* キャラクター表示エリア */
 .main {
     display: flex;
     justify-content: space-around;
     align-items: flex-end;
     padding: 20px;
     height: 60vh;
-    background-image: url('/img/bg-mf.png'); /* 背景画像パス */
-    background-color: lightblue; /* 背景色（画像がない場合に表示される） */
-    background-size: cover; /* 背景画像をカバー表示 */
-    background-position: center; /* 背景を中央に配置 */
+    background-image: url('/img/bg-mf.png');
+    background-color: lightblue;
+    background-size: cover;
+    background-position: center;
 }
 
-/* キャラクターの基本スタイル */
-.character {
+/* キャラクター画像 */
+.character-image {
     width: 400px;
     height: 400px;
     background-size: cover;
     background-position: center;
 }
 
-/* テキストボックスのスタイル */
+/* テキストボックス */
 .textbox {
     background-color: aquamarine;
     padding: 16px;
@@ -70,22 +70,21 @@ body {
     box-sizing: border-box;
 }
 
-/* テキスト表示エリアのスタイル */
-.textarea {
+/* テキストエリア */
+.text-area {
     background-color: white;
     border-radius: 20px;
     padding: 16px;
-    position: relative;
     max-width: 70%;
-    margin: 10px auto; /* テキストエリアをセンタリング */
-    font-size: 24px; /* フォントサイズを大きくする */
-    text-align: left; /* テキストを左寄せにする */
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    margin: 10px auto;
+    font-size: 24px;
+    text-align: left;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     position: relative;
 }
 
-/* 吹き出しの三角形 */
-.textarea.left::before, .textarea.right::before {
+/* 吹き出し（三角形） */
+.text-area.left::before, .text-area.right::before {
     content: "";
     width: 0;
     height: 0;
@@ -94,26 +93,25 @@ body {
     top: -20px;
 }
 
-.textarea.left::before {
+.text-area.left::before {
     border-width: 0 20px 20px 0;
     border-color: transparent white transparent transparent;
     left: 20px;
 }
 
-.textarea.right::before {
+.text-area.right::before {
     border-width: 0 0 20px 20px;
     border-color: transparent transparent transparent white;
     right: 20px;
 }
 
-/* 選択肢を横並びにするスタイル */
+/* 選択肢ボタン */
 .choice-option {
     display: flex;
     justify-content: space-evenly;
-    margin-top: 5px; /* 選択肢の間隔を狭める */
+    margin-top: 5px;
 }
 
-/* 共通の選択肢ボタンのスタイル */
 .choice-button {
     padding: 8px 16px;
     background-color: #4CAF50;
@@ -122,12 +120,11 @@ body {
     border: none;
     cursor: pointer;
     font-size: 16px;
-    font-family: 'DotGothic16', sans-serif;
     margin: 4px;
 }
 
-/* リセットボタンのスタイル（センタリング） */
-#resetButton {
+/* リセットボタン */
+#reset-button {
     margin-top: 20px;
     padding: 10px;
     background-color: #4CAF50;
@@ -135,9 +132,8 @@ body {
     border: none;
     cursor: pointer;
     font-size: 18px;
-    display: none; /* 初期は非表示 */
+    display: none;
     position: absolute;
-    left: 50%;  /* 水平方向のセンタリング */
-    transform: translateX(-50%);  /* ボタンの中心を基準にセンタリング */
+    left: 50%;
+    transform: translateX(-50%);
 }
-
