@@ -30,9 +30,6 @@ function setCharacterImage(elementId, imagePath) {
     }
 }
 
-// 初期値として左のキャラクターに main.gif を設定
-setCharacterImage("left-character-image", "/img/main.gif");
-
 // セリフを順番に表示する関数
 function displayDialogSequence(dialogSequence) {
     let currentIndex = 0;
@@ -99,8 +96,6 @@ document.getElementById("resetButton").addEventListener("click", () => {
     document.getElementById("choice-container").style.display = 'flex';
     document.getElementById("resetButton").style.display = 'none';
     document.getElementById("text").innerHTML = "僕もMFを卒業かあ…お世話になった皆さんに挨拶しないと";
-    setCharacterImage("left-character-image", "/img/main.gif"); // 初期画像を再設定
-    setCharacterImage("right-character-image", ""); // 右側の画像を非表示
 });
 
 // BGMの初期設定

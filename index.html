@@ -26,13 +26,13 @@
         <!-- 左側キャラクター（初期値として main.gif を設定） -->
         <img src="/img/main.gif" id="left-character-image" class="character-image">
         <!-- 右側キャラクター（初期は空） -->
-        <img src="" id="right-character-image" class="character-image">
+        <img src="/img/wanko.gif" id="right-character-image" class="character-image">
     </main>
     
     <!-- テキスト表示エリア -->
     <section class="textbox">
         <div class="text-area left">
-            <p id="text">僕もMFを卒業かあ…お世話になった皆さんに挨拶しないと</p>
+            <p id="text">僕もMFを卒業かあ…<br>お世話になった皆さんに挨拶しないと</p>
             <div id="choice-container" class="choice-option">
                 <button id="choice-nishikawa" class="choice-button">西川さん</button>
                 <button id="choice-murata" class="choice-button">村田さん</button>
@@ -41,6 +41,7 @@
                 <button id="choice-uda" class="choice-button">宇田さん</button>
                 <button id="choice-kuwama" class="choice-button">桑名さん</button>
             </div>
+            <!-- 「最初に戻る」ボタンをテキストエリア内に配置 -->
             <button id="resetButton" class="reset-button" style="display:none;">最初に戻る</button>
         </div>
     </section>
