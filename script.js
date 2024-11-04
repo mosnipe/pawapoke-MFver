@@ -95,7 +95,7 @@ function handleChoice(choice) {
 document.getElementById("resetButton").addEventListener("click", () => {
     document.getElementById("choice-container").style.display = 'flex';
     document.getElementById("resetButton").style.display = 'none';
-    document.getElementById("text").innerHTML = "僕もMFを卒業かあ…お世話になった皆さんに挨拶しないと";
+    document.getElementById("text").innerHTML = "僕もMFを卒業かあ…<br>お世話になった皆さんに挨拶しないと";
 });
 
 // BGMの初期設定
