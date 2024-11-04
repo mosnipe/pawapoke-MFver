@@ -96,3 +96,17 @@ document.addEventListener('DOMContentLoaded', () => {
         console.error("BGM要素が見つかりません。");
     }
 });
+
+// ポップアップ要素とボタンを取得
+const popup = document.getElementById("popup");
+const closePopupButton = document.getElementById("closePopup");
+
+// ページ読み込み時にポップアップを表示
+window.addEventListener("DOMContentLoaded", () => {
+    popup.classList.add("show");
+});
+
+// 閉じるボタンがクリックされたときにポップアップを非表示にする
+closePopupButton.addEventListener("click", () => {
+    popup.classList.remove("show");
+});
