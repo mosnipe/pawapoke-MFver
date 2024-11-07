@@ -1,6 +1,54 @@
 // dialogs.js からセリフデータを読み込む
 import { dialogs } from './dialogs.js';
 
+$(function () {
+    // メイン音楽ファイル設定
+    const mainMusicCode = 'uchide_odorou';
+    const mainMusicFile = './sound/music/genhoshino_dancing_on_the_inside_en.mp3';
+
+    // 音楽ファイルをロード
+    soundAdaptor.loadFile(mainMusicCode, mainMusicFile, {
+        success: function (buffer, soundKeyCode, src) {
+            console.log('Music loaded successfully:', src);
+        },
+        error: function (xmlObj, soundKeyCode, src) {
+            console.log('Error loading music:', src);
+        }
+    });
+
+    // 音楽再生制御変数
+    let isMusicPlaying = false;
+    let mainMusicSource = null;
+
+    // 音楽コントロールボタン
+    const musicControlBtn = $('#musicControlBtn');
+    musicControlBtn.text('♪PLAY');
+
+    // 音楽再生/停止の制御
+    musicControlBtn.on('click', function (ev) {
+        ev.preventDefault();
+        if (!isMusicPlaying) {
+            isMusicPlaying = true;
+            mainMusicSource = soundAdaptor.play(mainMusicCode);
+            mainMusicSource.loop = true; // ループ再生をON
+            musicControlBtn.text('×STOP');
+        } else {
+            isMusicPlaying = false;
+            mainMusicSource.stop(); // 音声を停止
+            musicControlBtn.text('♪PLAY');
+        }
+    });
+
+    // 古い端末向けハック（最初のタップで無音を再生）
+    $(document).one('click', function () {
+        soundAdaptor.silentBeep();
+        console.log('Initial touch for sound activation');
+    });
+});
+
+// 以降、ゲームロジックに関するコード
+// タイプライター風のテキスト表示、選択肢ハンドラー、リセットボタンなど
+
 // タイプライター風にテキストを表示する関数
 function typeWriter(text, element, callback, speed = 25) {
     let index = 0;
@@ -19,7 +67,7 @@ function typeWriter(text, element, callback, speed = 25) {
     type();
 }
 
-// 画像の表示/非表示処理を追加
+// 画像の表示/非表示処理
 function setCharacterImage(elementId, imagePath) {
     const characterImage = document.getElementById(elementId);
     if (imagePath) {
@@ -96,27 +144,4 @@ document.getElementById("resetButton").addEventListener("click", () => {
     document.getElementById("choice-container").style.display = 'flex';
     document.getElementById("resetButton").style.display = 'none';
     document.getElementById("text").innerHTML = "僕もMFを卒業かあ…お世話になった皆さんに挨拶しないと";
-});
-
-// 音楽再生とポップアップの表示設定
-document.addEventListener('DOMContentLoaded', () => {
-    // ポップアップ要素と音楽要素の取得
-    const popup = document.getElementById("popup");
-    const closePopupButton = document.getElementById("closePopup");
-    const playMusicButton = document.getElementById("playMusic");
-    const bgm = document.getElementById("bgm");
-
-    // ポップアップを表示
-    popup.style.display = "block";
-
-    // 「再生する」ボタンをクリックすると音楽を再生
-    playMusicButton.addEventListener("click", () => {
-        bgm.volume = 0.5;
-        bgm.play().catch(error => console.log("音楽の再生に失敗しました:", error));
-    });
-
-    // 「閉じる」ボタンでポップアップを閉じる
-    closePopupButton.addEventListener("click", () => {
-        popup.style.display = "none";
-    });
 });

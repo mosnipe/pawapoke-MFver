@@ -9,23 +9,24 @@
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
     <!-- CSSファイルの読み込み（ルート直下） -->
     <link rel="stylesheet" href="styles.css">
+    <!-- soundAdaptorクラスの読み込み -->
+    <script type="text/javascript" src="./js/soundAdaptor.js"></script>
 </head>
 <body>
-    <!-- BGMの設定（ディレクトリ構造に合わせたパスに変更） -->
-    <audio id="bgm" src="./bgm/main.m4a" loop></audio>
-
     <!-- ヘッダー部分 -->
     <header class="header">
         <span>3年 11月 1週</span>
         <span class="status">やる気: 😊</span>
         <span class="status">体力: ♥♥♥♥♥</span>
+        <!-- 音楽再生/停止ボタン -->
+        <a href="#music_start" id="musicControlBtn" class="music-button">♪PLAY</a>
     </header>
 
     <!-- キャラクター表示エリア -->
     <main class="main">
         <!-- 左側キャラクター（初期値として main.gif を設定） -->
         <img src="./img/main.gif" id="left-character-image" class="character-image">
-        <!-- 右側キャラクター -->
+        <!-- 右側キャラクター（初期値として wanko.gif を設定） -->
         <img src="./img/wanko.gif" id="right-character-image" class="character-image">
     </main>
     
@@ -45,15 +46,6 @@
             <button id="resetButton" class="reset-button" style="display:none;">最初に戻る</button>
         </div>
     </section>
-
-    <!-- ポップアップ要素 -->
-    <div id="popup" class="popup">
-        <div class="popup-content">
-            <p>このゲームはフィクションです。実際の人物や団体などとは一切関係ありません。</p>
-            <button id="playMusic" class="play-button">再生する</button>
-            <button id="closePopup" class="close-button">閉じる</button>
-        </div>
-    </div>
 
     <!-- スクリプトファイルの読み込み（ルート直下） -->
     <script type="module" src="script.js"></script>
