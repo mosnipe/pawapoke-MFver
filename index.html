@@ -12,7 +12,7 @@
 </head>
 <body>
     <!-- BGMの設定（ディレクトリ構造に合わせたパスに変更） -->
-    <audio id="bgm" src="./bgm/main.m4a" loop autoplay></audio>
+    <audio id="bgm" src="./bgm/main.m4a" loop></audio>
 
     <!-- ヘッダー部分 -->
     <header class="header">
@@ -25,8 +25,8 @@
     <main class="main">
         <!-- 左側キャラクター（初期値として main.gif を設定） -->
         <img src="./img/main.gif" id="left-character-image" class="character-image">
-        <!-- 右側キャラクター（初期は空） -->
-        <img src="" id="right-character-image" class="character-image">
+        <!-- 右側キャラクター -->
+        <img src="./img/wanko.gif" id="right-character-image" class="character-image">
     </main>
     
     <!-- テキスト表示エリア -->
@@ -50,6 +50,7 @@
     <div id="popup" class="popup">
         <div class="popup-content">
             <p>このゲームはフィクションです。実際の人物や団体などとは一切関係ありません。</p>
+            <button id="playMusic" class="play-button">再生する</button>
             <button id="closePopup" class="close-button">閉じる</button>
         </div>
     </div>

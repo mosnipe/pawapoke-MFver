@@ -95,15 +95,28 @@ function handleChoice(choice) {
 document.getElementById("resetButton").addEventListener("click", () => {
     document.getElementById("choice-container").style.display = 'flex';
     document.getElementById("resetButton").style.display = 'none';
-    document.getElementById("text").innerHTML = "僕もMFを卒業かあ…<br>お世話になった皆さんに挨拶しないと";
+    document.getElementById("text").innerHTML = "僕もMFを卒業かあ…お世話になった皆さんに挨拶しないと";
 });
 
-// BGMの初期設定
+// 音楽再生とポップアップの表示設定
 document.addEventListener('DOMContentLoaded', () => {
-    const bgm = document.getElementById('bgm');
-    if (bgm) {
-        bgm.volume = 0.5; // 音量を50%に設定
-    } else {
-        console.error("BGM要素が見つかりません。");
-    }
+    // ポップアップ要素と音楽要素の取得
+    const popup = document.getElementById("popup");
+    const closePopupButton = document.getElementById("closePopup");
+    const playMusicButton = document.getElementById("playMusic");
+    const bgm = document.getElementById("bgm");
+
+    // ポップアップを表示
+    popup.style.display = "block";
+
+    // 「再生する」ボタンをクリックすると音楽を再生
+    playMusicButton.addEventListener("click", () => {
+        bgm.volume = 0.5;
+        bgm.play().catch(error => console.log("音楽の再生に失敗しました:", error));
+    });
+
+    // 「閉じる」ボタンでポップアップを閉じる
+    closePopupButton.addEventListener("click", () => {
+        popup.style.display = "none";
+    });
 });
