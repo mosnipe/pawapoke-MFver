@@ -1,10 +1,10 @@
 var soundAdaptor = (function () {
-    // Web Audio APIのコンテキストを保持
+    // Web Audio API のコンテキストを保持
     var _context = null;
     // 読み込んだ音声バッファーを保持するオブジェクト
     var _buffers = {};
 
-    // Web Audio APIの初期化
+    // Web Audio API の初期化
     function _initialize() {
         _context = new (window.AudioContext || window.webkitAudioContext)();
     }
@@ -38,7 +38,7 @@ var soundAdaptor = (function () {
 
         xml.onload = function () {
             if (xml.status === 200) {
-                // Web Audio API用のデータに変換
+                // Web Audio API 用のデータに変換
                 _context.decodeAudioData(xml.response, function (buffer) {
                     _buffers[soundKeyCode] = buffer; // バッファーに登録
                     if (callback && typeof callback.success === 'function') {
@@ -71,7 +71,7 @@ var soundAdaptor = (function () {
 
     // 公開メソッド
     return {
-        // 無音再生でiOSの音声再生を有効化
+        // 無音再生で iOS の音声再生を有効化
         silentBeep: function () {
             _silentBeep();
         },

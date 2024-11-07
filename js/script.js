@@ -3,8 +3,8 @@ import { dialogs } from './dialogs.js';
 
 $(function () {
     // メイン音楽ファイル設定
-    const mainMusicCode = 'uchide_odorou';
-    const mainMusicFile = './sound/music/genhoshino_dancing_on_the_inside_en.mp3';
+    const mainMusicCode = 'main_bgm';
+    const mainMusicFile = './bgm/main.m4a';  // 音楽ファイルパスを指定
 
     // 音楽ファイルをロード
     soundAdaptor.loadFile(mainMusicCode, mainMusicFile, {
