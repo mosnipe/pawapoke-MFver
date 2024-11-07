@@ -1,4 +1,4 @@
-/* ベーススタイル */
+/* 基本スタイル */
 body {
     font-family: 'DotGothic16', sans-serif;
     background-color: #f0f0f0;
@@ -6,7 +6,7 @@ body {
     padding: 0;
 }
 
-/* ヘッダー */
+/* ヘッダー部分のスタイル */
 .header {
     background-color: #4CAF50;
     color: white;
@@ -24,32 +24,30 @@ body {
     font-size: 18px;
 }
 
-/* ミュートボタン（右側に配置） */
-.mute-button {
-    background: none;
+/* 音楽コントロールボタンのスタイル */
+.music-button {
+    background-color: transparent;
     border: none;
-    font-size: 24px;
+    font-size: 18px;
+    color: white;
     cursor: pointer;
-    position: absolute;
-    right: 10px;
-    top: 50%;
-    transform: translateY(-50%);
+    text-decoration: none;
+    padding: 8px 12px;
 }
 
-/* キャラクター表示エリア */
+/* メイン画面 (キャラクター表示エリア) */
 .main {
     display: flex;
     justify-content: space-around;
     align-items: flex-end;
     padding: 20px;
     height: 60vh;
-    background-image: url('./img/bg-mf.png');
-    background-color: lightblue;
+    background-image: url('./img/bg-mf.png'); /* 背景画像パス */
     background-size: cover;
     background-position: center;
 }
 
-/* キャラクター画像 */
+/* キャラクターの基本スタイル */
 .character-image {
     width: 400px;
     height: 400px;
@@ -57,7 +55,7 @@ body {
     background-position: center;
 }
 
-/* テキストボックス */
+/* テキストボックスのスタイル */
 .textbox {
     background-color: aquamarine;
     padding: 16px;
@@ -70,7 +68,7 @@ body {
     box-sizing: border-box;
 }
 
-/* テキストエリア */
+/* テキスト表示エリアのスタイル */
 .text-area {
     background-color: white;
     border-radius: 20px;
@@ -79,39 +77,17 @@ body {
     margin: 10px auto;
     font-size: 24px;
     text-align: left;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    position: relative;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-/* 吹き出し（三角形） */
-.text-area.left::before, .text-area.right::before {
-    content: "";
-    width: 0;
-    height: 0;
-    border-style: solid;
-    position: absolute;
-    top: -20px;
-}
-
-.text-area.left::before {
-    border-width: 0 20px 20px 0;
-    border-color: transparent white transparent transparent;
-    left: 20px;
-}
-
-.text-area.right::before {
-    border-width: 0 0 20px 20px;
-    border-color: transparent transparent transparent white;
-    right: 20px;
-}
-
-/* 選択肢ボタン */
+/* 選択肢を横並びにするスタイル */
 .choice-option {
     display: flex;
     justify-content: space-evenly;
     margin-top: 5px;
 }
 
+/* 選択肢ボタンのスタイル */
 .choice-button {
     padding: 8px 16px;
     background-color: #4CAF50;
@@ -120,10 +96,11 @@ body {
     border: none;
     cursor: pointer;
     font-size: 16px;
+    font-family: 'DotGothic16', sans-serif;
     margin: 4px;
 }
 
-/* 「最初に戻る」ボタンのスタイル */
+/* リセットボタンのスタイル */
 #resetButton {
     margin-top: 20px;
     padding: 10px;
@@ -132,50 +109,8 @@ body {
     border: none;
     cursor: pointer;
     font-size: 18px;
-    font-family: 'DotGothic16', sans-serif;
     display: none;
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    border-radius: 5px;
-    text-align: center;
-}
-
-
-/* ポップアップのスタイル */
-.popup {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.7);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    visibility: hidden;
-    opacity: 0;
-    transition: visibility 0s, opacity 0.3s;
-    font-family: 'DotGothic16', sans-serif; /* フォントの適用 */
-}
-
-.popup-content {
-    background-color: white;
-    padding: 20px;
-    border-radius: 8px;
-    text-align: center;
-    max-width: 500px;
-    width: 80%;
-    font-family: 'DotGothic16', sans-serif; /* フォントの適用 */
-}
-
-.close-button {
-    margin-top: 10px;
-    padding: 10px 20px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    cursor: pointer;
-    border-radius: 5px;
-    font-family: 'DotGothic16', sans-serif; /* フォントの適用 */
 }

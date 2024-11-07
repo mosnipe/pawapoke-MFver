@@ -7,10 +7,12 @@
     <!-- Googleフォントの読み込み -->
     <link href="https://fonts.googleapis.com/css2?family=DotGothic16&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
-    <!-- CSSファイルの読み込み（ルート直下） -->
+    <!-- CSSファイルの読み込み -->
     <link rel="stylesheet" href="styles.css">
-    <!-- soundAdaptorクラスの読み込み -->
+    <!-- soundAdaptor.js の読み込み -->
     <script type="text/javascript" src="./js/soundAdaptor.js"></script>
+    <!-- jQuery の読み込み（script.js よりも先に読み込み） -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
     <!-- ヘッダー部分 -->
@@ -47,7 +49,7 @@
         </div>
     </section>
 
-    <!-- スクリプトファイルの読み込み（ルート直下） -->
-    <script type="module" src="script.js"></script>
+    <!-- メインの JavaScript ファイルの読み込み -->
+    <script type="module" src="./js/script.js"></script>
 </body>
 </html>

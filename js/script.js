@@ -46,9 +46,6 @@ $(function () {
     });
 });
 
-// 以降、ゲームロジックに関するコード
-// タイプライター風のテキスト表示、選択肢ハンドラー、リセットボタンなど
-
 // タイプライター風にテキストを表示する関数
 function typeWriter(text, element, callback, speed = 25) {
     let index = 0;
