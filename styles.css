@@ -43,7 +43,7 @@ body {
     align-items: flex-end;
     padding: 20px;
     height: 60vh;
-    background-image: url('/img/bg-mf.png');
+    background-image: url('./img/bg-mf.png');
     background-color: lightblue;
     background-size: cover;
     background-position: center;
