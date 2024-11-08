@@ -22,7 +22,7 @@ $(function () {
 
     // 音楽コントロールボタン（#5）
     const musicControlBtn = $('#musicControlBtn');
-    musicControlBtn.text('♪PLAY');
+    musicControlBtn.text('♪PLAY　※音量注意！');
 
     // 音楽再生/停止の制御（#6）
     musicControlBtn.on('click', function (ev) {
@@ -31,7 +31,7 @@ $(function () {
             isMusicPlaying = true;
             mainMusicSource = soundAdaptor.play(mainMusicCode);
             mainMusicSource.loop = true;            // ループ再生をON
-            mainMusicSource.gain.value = 0.5;       // 音量を50%に設定
+            mainMusicSource.gain.value = 0.3;       // 音量を50%に設定
             musicControlBtn.text('×STOP');
         } else {
             isMusicPlaying = false;
